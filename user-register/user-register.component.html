@@ -1,0 +1,178 @@
+<br>
+<div class="form">
+  <form [formGroup]="myGroup" #weddingForm="ngForm"  (ngSubmit)="onSubmit(myGroup.value); onUpload()"> 
+    <h5 style="text-align:center;">DAFTAR PENGGUNA</h5> 
+
+  <br>
+    <label for="name" class="form-label">NAMA PEMOHON</label>
+      <input type="text" id="name" name="name" formControlName="name" class="form-control" placeholder="contoh:ali bin abu">
+        <div class="row g-3">
+          <div class="col">
+            <div *ngIf="myGroup.get('name').invalid && (myGroup.get('name').dirty || myGroup.get('name').touched)">
+              <div *ngIf="myGroup.get('name').errors?.required">
+              <small>Sila isi nama penuh anda</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+  <br>
+    <label for="alamat" class="form-label">ALAMAT NIKAH (1)</label>
+      <input type="text" id="alamat" name="alamat" formControlName="alamat" class="form-control" placeholder="">
+        <div class="row g-3">
+          <div class="col">
+            <div *ngIf="myGroup.get('alamat').invalid && (myGroup.get('alamat').dirty || myGroup.get('alamat').touched)">
+              <div *ngIf="myGroup.get('alamat').errors?.required">
+               <small>Sila isi alamat anda</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+  <br>
+    <label for="alamat2" class="form-label">ALAMAT NIKAH (2)</label>
+      <input type="text" id="alamat2" name="alamat2" formControlName="alamat2" class="form-control" placeholder="">
+        <div class="row g-3">
+          <div class="col">
+            <div *ngIf="myGroup.get('alamat2').invalid && (myGroup.get('alamat2').dirty || myGroup.get('alamat2').touched)">
+              <div *ngIf="myGroup.get('alamat2').errors?.required">
+              <small>Sila isi alamat anda</small>
+              </div>
+            </div>
+          </div>
+        </div>
+ 
+  <br>
+    <label for="negeri" class="form-label">NEGERI</label>
+      <select class="form-select" id="negeri" formControlName="negeri" aria-describedby="inputGroupPrepend2" name="negeri" required>
+        <option selected disabled value="">Sila Pilih Negeri</option>
+          <option>JOHOR</option>
+          <option>MELAKA</option>
+          <option>N.SEMBILAN</option>
+          <option>SELANGOR</option>
+          <option>PERLIS</option>
+          <option>KEDAH</option>
+          <option>PAHANG</option>
+          <option>SABAH</option>
+          <option>SARAWAK</option>
+          <option>KELANTAN</option>
+          <option>TERENGGANU</option>
+          <option>PERAK</option>
+          <option>PULAU PINANG</option>
+          <option>WP KL</option>
+      </select>
+      <div class="row g-3">
+        <div class="col">
+         <div *ngIf="myGroup.get('negeri').invalid && (myGroup.get('negeri').dirty || myGroup.get('negeri').touched)">
+            <div *ngIf="myGroup.get('negeri').errors?.required">
+            <small>Sila pilih negeri anda</small>
+            </div>
+         </div>
+        </div>
+      </div>
+
+  <br>
+    <label for="bandar" class="form-label">BANDAR</label>
+      <input type="text" id="bandar" name="bandar" formControlName="bandar" class="form-control" placeholder="">
+        <div class="row g-3">
+          <div class="col">
+            <div *ngIf="myGroup.get('bandar').invalid && (myGroup.get('bandar').dirty || myGroup.get('bandar').touched)">
+              <div *ngIf="myGroup.get('bandar').errors?.required">
+              <small>Sila isi bandar anda</small>
+              </div>
+            </div>
+          </div>
+        </div>
+ 
+  <br>
+    <label for="poskod" class="form-label">POSKOD</label>
+      <input type="text" id="poskod" name="poskod" formControlName="poskod" class="form-control" placeholder="" required minlength="5" maxlength="5">
+        <div class="row g-3">
+          <div class="col">
+            <div *ngIf="myGroup.get('poskod').invalid && (myGroup.get('poskod').dirty || myGroup.get('poskod').touched)">
+              <div *ngIf="myGroup.get('poskod').errors?.required">
+                <small>Sila isi poskod anda</small>
+              </div>
+              <div *ngIf="myGroup.get('poskod').errors?.minlength">
+                poskod tidak sah perlu 5 digit
+              </div>
+            </div>
+          </div>
+        </div>
+
+  <br>
+    <label for="kad" class="form-label">NO KAD PENGENALAN</label>
+      <input type="text" id="kad" name="kad" formControlName="kad" class="form-control" placeholder="contoh:010706010390" required minlength="12" maxlength="12">
+        <div class="row g-3">
+          <div class="col">
+            <div *ngIf="myGroup.get('kad').invalid && (myGroup.get('kad').dirty || myGroup.get('kad').touched)">
+              <div *ngIf="myGroup.get('kad').errors?.required">
+              <small>Sila isi no K/P anda</small>
+              </div>
+              <div *ngIf="myGroup.get('kad').errors?.minlength">
+              No K/P tidak sah perlu 12 digit
+              </div>
+            </div>
+          </div>
+        </div>
+
+  <br>
+    <label for="dob" class="form-label">DOB</label>
+      <input type="date" id="dob" name="dob" formControlName="dob" autocomplete="off" class="form-control" (change)="onDateChange($event)"  placeholder="">
+        <div class="row g-3">
+          <div class="col">
+            <div *ngIf="myGroup.get('dob').invalid && (myGroup.get('dob').dirty || myGroup.get('dob').touched)">
+              <div *ngIf="myGroup.get('dob').errors?.required">
+              <small>Sila isi tarikh lahir anda</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+  <br>
+    <label for="dob" class="form-label">EMAIL</label>
+      <input type="email" id="email" name="email" formControlName="email"  class="form-control" (change)="onEmail()" placeholder="contoh:ahmad123@gmail.com">
+        <div class="row g-3">
+          <div class="col">
+            <div *ngIf="myGroup.get('email').invalid && (myGroup.get('email').dirty || myGroup.get('email').touched)">
+              <div *ngIf="myGroup.get('email').errors?.required">
+              <small>Sila isi email anda</small>
+              </div>
+              <div *ngIf="myGroup.get('email').errors?.email">Sila isi alamat email yang sah</div>
+            </div>
+          </div>
+        </div>
+
+  <br>
+    <label for="mas" class="form-label">Sila Lampirkan Gambar I/C Anda:</label>
+      <div class="col-sm-3">
+        <div class="promotion-image-container">
+          <img [src]="ic" class="img-thumbnail">
+        </div>
+      </div>
+  <br>
+    <input type="file" class="form-control-file" formControlName="attach"  id="attach"  accept="image/*" (change)="onselectFile($event)" name="attach">
+      <div class="row g-3">
+        <div class="col">
+          <div *ngIf="myGroup.get('attach').invalid && (myGroup.get('attach').dirty || myGroup.get('attach').touched)">
+            <div *ngIf="myGroup.get('attach').errors?.required">
+            <small>Sila lampirkan gambar ic</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+  <br><br>
+    <form [formGroup]="aFormGroup"></form>
+      <ngx-recaptcha2 #captchaElem
+      [siteKey]="siteKey"
+      formControlName="recaptcha"></ngx-recaptcha2><br>
+
+      <div class="d-grid gap-1 d-md-flex justify-content-md-end">                             
+        <button mat-raised-button color="primary" type="submit" [disabled]="weddingForm.invalid">DAFTAR</button>
+        <button type="button" class="btn btn-link" (click)="weddingForm.resetForm({})">Reset</button>  
+      </div> 
+
+  </form>
+</div> 
+<br>

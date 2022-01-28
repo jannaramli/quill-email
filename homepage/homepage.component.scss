@@ -1,0 +1,26 @@
+.bgHome img{
+    width: 100%;
+    height: 723px;
+    object-position: center;
+    object-fit: cover;
+}
+.word{
+  position: absolute;
+  top: 50%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+}
+.word h1{
+  color: white;
+  animation: Slide_Up 1.2s ease;
+}
+.word h6 {
+  color: white;
+  font-style: italic;
+  animation: Slide_Up 1.4s ease;
+}
+.butDaftar{animation: Slide_Up 1.6s ease;}
+@keyframes Slide_Up{
+  0%{transform:translateY(100px);}
+  100%{transform: translateY(0);}
+}
